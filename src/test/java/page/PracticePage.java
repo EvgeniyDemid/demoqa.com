@@ -4,5 +4,5 @@ import form.RegistrationForm;
 
 public class PracticePage {
 
-	RegistrationForm onRegistrationForm(){ return new RegistrationForm();}
+	public RegistrationForm onRegistrationForm(){ return new RegistrationForm();}
 }
