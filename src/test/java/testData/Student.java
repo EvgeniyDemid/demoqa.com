@@ -8,7 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class Student {
-	private String firstNameInput;
 
 	private String firstName;
 
@@ -35,4 +34,6 @@ public class Student {
 	private String state;
 
 	private String city;
+
+	private String picture;
 }
