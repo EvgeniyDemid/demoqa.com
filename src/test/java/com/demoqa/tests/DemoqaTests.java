@@ -1,10 +1,10 @@
-package tests;
+package com.demoqa.tests;
 
 import com.codeborne.selenide.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import testData.Student;
-import testData.StudentData;
+import com.demoqa.testData.Student;
+import com.demoqa.testData.StudentData;
 
 import java.io.File;
 
@@ -13,15 +13,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class DemoqaTests {
+public class DemoqaTests extends TestBase {
 
-
-	@BeforeAll
-	static void beforeAll() {
-		Configuration.baseUrl = "https://demoqa.com";
-		Configuration.pageLoadStrategy = "eager";
-		Configuration.browser = FIREFOX;
-	}
 
 	@Test
 	public void checkMainPage() {

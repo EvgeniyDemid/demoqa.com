@@ -1,4 +1,4 @@
-package testData;
+package com.demoqa.testData;
 
 import lombok.*;
 

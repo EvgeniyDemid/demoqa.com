@@ -1,4 +1,4 @@
-package testData;
+package com.demoqa.testData;
 
 public class StudentData {
 	public static Student[] students = new Student[]{
