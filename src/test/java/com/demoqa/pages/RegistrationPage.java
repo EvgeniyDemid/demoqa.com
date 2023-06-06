@@ -1,18 +1,19 @@
 package com.demoqa.pages;
 
 import com.codeborne.selenide.*;
-import com.demoqa.pages.components.Calendar;
+import com.demoqa.pages.components.CalendarForm;
+import com.demoqa.pages.components.SubmittingStudentForm;
 import com.demoqa.testData.Student;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-	Calendar calendar = new Calendar();
+	CalendarForm calendarForm = new CalendarForm();
+	SubmittingStudentForm submittingStudentForm = new SubmittingStudentForm();
 	SelenideElement
 			firstNameInput = $("#firstName"),
 			lastNameInput = $("#lastName"),
@@ -27,9 +28,7 @@ public class RegistrationPage {
 			state = $("#state"),
 			stateCity = $("#city"),
 			submit = $("#submit"),
-			submittingForm = $(".table-responsive"),
-			titelRegForm = $(byText("Student Registration Form")),
-			titelSubForm = $("#example-modal-sizes-title-lg");
+			titelRegForm = $(byText("Student Registration Form"));
 
 	public RegistrationPage openPage() {
 		Selenide.open("/automation-practice-form");
@@ -100,26 +99,17 @@ public class RegistrationPage {
 
 	public RegistrationPage setBirthDay(Student student) {
 		birthInput.click();
-		calendar.setDate(student);
+		calendarForm.setDate(student);
 		return this;
 	}
 
-	public void clickSubmit() {
+	public RegistrationPage clickSubmit() {
 		submit.click();
+		return this;
 	}
 
-	public void checkSubmittingFormValue(Student student) {
-		titelSubForm.shouldBe(visible);
-		submittingForm.$(byText("Label")).sibling(0).shouldHave(text("Values"));
-		submittingForm.$(byText("Student Name")).sibling(0).shouldHave(text(student.getFirstName() + " " + student.getLastName()));
-		submittingForm.$(byText("Student Email")).sibling(0).shouldHave(text((student.getEmail())));
-		submittingForm.$(byText("Gender")).sibling(0).shouldHave(text(student.getGender()));
-		submittingForm.$(byText("Mobile")).sibling(0).shouldHave(text(student.getUserMobile()));
-		submittingForm.$(byText("Date of Birth")).sibling(0).shouldHave(text(student.getDayOfBirth() + " " + student.getMonthOfBirth() + "," + student.getYearOfBirth()));
-		submittingForm.$(byText("Subjects")).sibling(0).shouldHave(text(student.getSubjects()));
-		submittingForm.$(byText("Hobbies")).sibling(0).shouldHave(text(student.getHobbies()));
-		submittingForm.$(byText("Picture")).sibling(0).shouldHave(text(student.getPicture()));
-		submittingForm.$(byText("Address")).sibling(0).shouldHave(text(student.getCurrentAddress()));
-		submittingForm.$(byText("State and City")).sibling(0).shouldHave(text(student.getState() + " " + student.getCity()));
+	public void checkSubmittingStudentForm(Student student) {
+		submittingStudentForm.checkSubmittingFormValue(student);
 	}
 }
+

@@ -5,7 +5,7 @@ import com.demoqa.testData.Student;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class Calendar {
+public class CalendarForm {
 	public void setDate(Student student){
 		SelenideElement
 				month_select = $(".react-datepicker__month-select"),

@@ -24,8 +24,8 @@ public class DemoqaTests extends TestBase {
 				.setPicture(student)
 				.setCurrentAddress(student)
 				.setState(student)
-				.setStateCity(student);
-		registrationPage.clickSubmit();
-		registrationPage.checkSubmittingFormValue(student);
+				.setStateCity(student)
+				.clickSubmit()
+				.checkSubmittingStudentForm(student);
 	}
 }

@@ -17,6 +17,6 @@ public class TestBoxPageTest extends TestBase {
 				setCurrentAddressInput(textBoxData.getCurrentAddress()).
 				setPermanentAddressInput(textBoxData.getPermanentAddress()).
 				clickSubmitButton().
-				checkOutPutForm(textBoxData);
+				checkSubmittingTextBoxForm(textBoxData);
 	}
 }

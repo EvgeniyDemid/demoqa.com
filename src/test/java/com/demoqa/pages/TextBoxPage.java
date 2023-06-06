@@ -1,9 +1,9 @@
 package com.demoqa.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import com.demoqa.pages.components.SubmittingTextBoxForm;
 import com.demoqa.testData.TextBox;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -11,16 +11,14 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TextBoxPage {
 
+	SubmittingTextBoxForm submittingTextBoxForm = new SubmittingTextBoxForm();
+
 	SelenideElement
 			userNameInput = $("#userName"),
 			userEmailInput = $("#userEmail"),
 			currentAddressInput = $("#currentAddress"),
 			permanentAddressInput = $("#permanentAddress"),
-			submitButton = $("#submit"),
-			nameOutput = $(" #output #name"),
-			emailOutput = $(" #output #email"),
-			currentAddressOutput = $(" #output #currentAddress"),
-			permanentAddressOutput = $(" #output #permanentAddress");
+			submitButton = $("#submit");
 
 	public TextBoxPage setFirstNameInput(String firstName) {
 		userNameInput.setValue(firstName);
@@ -47,11 +45,8 @@ public class TextBoxPage {
 		return this;
 	}
 
-	public void checkOutPutForm(TextBox data){
-		nameOutput.shouldHave(Condition.text(data.getFullName()));
-		emailOutput.shouldHave(Condition.text(data.getEmail()));
-		currentAddressOutput.shouldHave(Condition.text(data.getCurrentAddress()));
-		permanentAddressOutput.shouldHave(Condition.text(data.getPermanentAddress()));
+	public void checkSubmittingTextBoxForm(TextBox data) {
+		submittingTextBoxForm.checkOutPutForm(data);
 	}
 
 	public TextBoxPage openPage() {
