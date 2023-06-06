@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.demoqa.tests.TestBoxPageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-06T11:37:45" hostname="DEMIDOV-E" time="0.667">
+  <properties/>
+  <testcase name="checkTextBoxPage()" classname="com.demoqa.tests.TestBoxPageTest" time="0.667"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
