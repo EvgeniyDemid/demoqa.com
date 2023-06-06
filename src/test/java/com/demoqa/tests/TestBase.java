@@ -1,15 +1,16 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.demoqa.pages.RegistrationPage;
+import com.demoqa.pages.TextBoxPage;
 import org.junit.jupiter.api.BeforeAll;
 
-import static com.codeborne.selenide.Browsers.FIREFOX;
-
 public class TestBase {
+	RegistrationPage registrationPage = new RegistrationPage();
+	TextBoxPage textBoxPage = new TextBoxPage();
 	@BeforeAll
 	static void beforeAll() {
 		Configuration.baseUrl = "https://demoqa.com";
 		Configuration.pageLoadStrategy = "eager";
-		Configuration.browser = FIREFOX;
 	}
 }

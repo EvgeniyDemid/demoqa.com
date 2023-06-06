@@ -27,7 +27,7 @@ public class Student {
 
 	private String subjects;
 
-	private String hobbiesSport;
+	private String hobbies;
 
 	private String currentAddress;
 
@@ -36,4 +36,6 @@ public class Student {
 	private String city;
 
 	private String picture;
+
+	private String pathPicture;
 }

@@ -9,14 +9,15 @@ public class StudentData {
 					.gender("Male")
 					.userMobile("8928384858")
 					.yearOfBirth("2001")
-					.monthOfBirth("June")
-					.dayOfBirth("12")
+					.monthOfBirth("March")
+					.dayOfBirth("15")
 					.subjects("Arts")
-					.hobbiesSport("Music")
+					.hobbies("Music")
 					.currentAddress("Pervomayskaya 89")
 					.state("Haryana")
 					.city("Karnal")
 					.picture("Screenshot.png")
+					.pathPicture("src/test/resources/")
 					.build()
 	};
 }
