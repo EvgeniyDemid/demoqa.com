@@ -4,7 +4,7 @@ import com.demoqa.testData.TextBox;
 import com.demoqa.testData.TextBoxData;
 import org.junit.jupiter.api.Test;
 
-public class TestBoxPageTest extends TestBase {
+public class TestBoxPageTests extends TestBase {
 
 	TextBox textBoxData = TextBoxData.textBoxes[0];
 

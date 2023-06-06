@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="976eab5b-c4e3-4d8d-8147-70de846aa96c" name="Changes" comment="add checkTextBoxPage">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/demoqa/pages/components/SubmittingStudentForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/demoqa/pages/components/SubmittingTextBoxForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/demoqa/pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/demoqa/pages/RegistrationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/demoqa/pages/TextBoxPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/demoqa/pages/TextBoxPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/demoqa/pages/components/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/demoqa/pages/components/CalendarForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/demoqa/tests/DemoqaTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/demoqa/tests/DemoqaTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/demoqa/tests/TestBoxPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/demoqa/tests/TestBoxPageTest.java" afterDir="false" />
+    <list default="true" id="976eab5b-c4e3-4d8d-8147-70de846aa96c" name="Changes" comment="add submittingform">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +267,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686050455658</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add submittingform">
+      <created>1686051517987</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686051517987</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add submittingform">
+      <created>1686053386710</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686053386710</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -296,7 +304,8 @@
     <MESSAGE value="fix remarks" />
     <MESSAGE value="add TestBase" />
     <MESSAGE value="add checkTextBoxPage" />
-    <option name="LAST_COMMIT_MESSAGE" value="add checkTextBoxPage" />
+    <MESSAGE value="add submittingform" />
+    <option name="LAST_COMMIT_MESSAGE" value="add submittingform" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
