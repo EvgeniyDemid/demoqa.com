@@ -6,6 +6,7 @@ import com.demoqa.testData.StudentData;
 import org.junit.jupiter.api.Test;
 
 public class DemoqaTests extends TestBase {
+	RegistrationPage registrationPage = new RegistrationPage();
 
 	@Test
 	public void checkMainPage() {
@@ -13,19 +14,19 @@ public class DemoqaTests extends TestBase {
 		Student student = StudentData.students[0];
 
 		registrationPage.openPage()
-				.setFirstNameInput(student)
-				.setLastNameInput(student)
-				.setUserEmailInput(student)
-				.setGenterCheckBox(student)
-				.setUserNumberInput(student)
-				.setBirthDay(student)
-				.setSubjectsContainerInput(student)
-				.setHobbies(student)
-				.setPicture(student)
-				.setCurrentAddress(student)
-				.setState(student)
-				.setStateCity(student)
-				.clickSubmit()
+				.setFirstName(student.getFirstName())
+				.setLastName(student.getLastName())
+				.setEmail(student.getEmail())
+				.setGender(student.getGender())
+				.setMobile(student.getUserMobile())
+				.setBirthDay(student.getDayOfBirth(),student.getMonthOfBirth(),student.getYearOfBirth())
+				.setSubjects(student.getSubjects())
+				.setHobbies(student.getHobbies())
+				.setPicture(student.getPicture(),student.getPathPicture())
+				.setCurrentAddress(student.getCurrentAddress())
+				.setStateInput(student.getState())
+				.setСityInput(student.getCity())
+				.clickSubmitButton()
 				.checkSubmittingStudentForm(student);
 	}
 }

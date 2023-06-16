@@ -2,8 +2,9 @@ package com.demoqa.pages;
 
 import com.codeborne.selenide.*;
 import com.demoqa.pages.components.CalendarForm;
-import com.demoqa.pages.components.SubmittingStudentForm;
+import com.demoqa.pages.components.ResultsModalForm;
 import com.demoqa.testData.Student;
+import com.demoqa.tests.TestBase;
 
 import java.io.File;
 
@@ -13,103 +14,115 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
 	CalendarForm calendarForm = new CalendarForm();
-	SubmittingStudentForm submittingStudentForm = new SubmittingStudentForm();
+	ResultsModalForm resultsModalForm = new ResultsModalForm();
+	TestBase testBase = new TestBase();
 	SelenideElement
 			firstNameInput = $("#firstName"),
 			lastNameInput = $("#lastName"),
 			userEmailInput = $("#userEmail"),
-			genterCheckBox = $("#genterWrapper"),
-			userNumberInput = $("#userNumber"),
-			birthInput = $("#dateOfBirthInput"),
-			subjectsContainerInput = $("#subjectsInput"),
+			genderCheckBox = $("#genterWrapper"),
+			mobileInput = $("#userNumber"),
+			dateOfBirth = $("#dateOfBirthInput"),
+			subjectsInput = $("#subjectsInput"),
 			hobbies = $("#hobbiesWrapper"),
 			picture = $("#uploadPicture"),
 			currentAddress = $("#currentAddress"),
-			state = $("#state"),
-			stateCity = $("#city"),
-			submit = $("#submit"),
+			stateInput = $("#state"),
+			сityInput = $("#city"),
+			submitButton = $("#submit"),
 			titelRegForm = $(byText("Student Registration Form"));
 
 	public RegistrationPage openPage() {
 		Selenide.open("/automation-practice-form");
-		WebDriverRunner.driver().getWebDriver().manage().window().maximize();
 		titelRegForm.shouldBe(visible);
-		executeJavaScript("$('#fixedban').remove()");
-		executeJavaScript("$('footer').remove()");
-		return this;
-	}
-
-	public RegistrationPage setFirstNameInput(Student student) {
-		firstNameInput.setValue(student.getFirstName());
-		return this;
-	}
-
-	public RegistrationPage setLastNameInput(Student student) {
-		lastNameInput.setValue(student.getLastName());
-		return this;
-	}
-
-	public RegistrationPage setUserEmailInput(Student student) {
-		userEmailInput.setValue(student.getEmail());
-		return this;
-	}
-
-	public RegistrationPage setGenterCheckBox(Student student) {
-		genterCheckBox.$(byText(student.getGender())).click();
-		return this;
-	}
-
-	public RegistrationPage setUserNumberInput(Student student) {
-		userNumberInput.setValue(student.getUserMobile());
+		testBase.removingFooterBanners();
 		return this;
 	}
 
 
-	public RegistrationPage setSubjectsContainerInput(Student student) {
-		subjectsContainerInput.setValue(student.getSubjects()).pressEnter();
+
+	public RegistrationPage setFirstName(String firstName) {
+		firstNameInput.setValue(firstName);
 		return this;
 	}
 
-	public RegistrationPage setHobbies(Student student) {
-		hobbies.$(byText(student.getHobbies())).click();
+	public RegistrationPage setLastName(String lastName) {
+		lastNameInput.setValue(lastName);
 		return this;
 	}
 
-	public RegistrationPage setPicture(Student student) {
-		picture.uploadFile(new File(student.getPathPicture() + student.getPicture()));
+	public RegistrationPage setEmail(String email) {
+		userEmailInput.setValue(email);
 		return this;
 	}
 
-	public RegistrationPage setCurrentAddress(Student student) {
-		currentAddress.setValue(student.getCurrentAddress());
+	public RegistrationPage setGender(String gender) {
+		genderCheckBox.$(byText(gender)).click();
 		return this;
 	}
 
-	public RegistrationPage setState(Student student) {
-		state.click();
-		state.$(byText(student.getState())).click();
+	public RegistrationPage setMobile(String mobile) {
+		mobileInput.setValue(mobile);
 		return this;
 	}
 
-	public RegistrationPage setStateCity(Student student) {
-		stateCity.click();
-		stateCity.$(byText(student.getCity())).click();
+
+	public RegistrationPage setSubjects(String subjects) {
+		subjectsInput.setValue(subjects).pressEnter();
 		return this;
 	}
 
-	public RegistrationPage setBirthDay(Student student) {
-		birthInput.click();
-		calendarForm.setDate(student);
+	public RegistrationPage setHobbies(String hobbie) {
+		hobbies.$(byText(hobbie)).click();
 		return this;
 	}
 
-	public RegistrationPage clickSubmit() {
-		submit.click();
+	public RegistrationPage setPicture(String pictureName, String pathPicture) {
+		picture.uploadFile(new File( pathPicture + pictureName ));
+		return this;
+	}
+
+	public RegistrationPage setCurrentAddress(String address) {
+		currentAddress.setValue(address);
+		return this;
+	}
+
+	public RegistrationPage setStateInput(String state) {
+		stateInput.click();
+		stateInput.$(byText(state)).click();
+		return this;
+	}
+
+	public RegistrationPage setСityInput(String city) {
+		сityInput.click();
+		сityInput.$(byText(city)).click();
+		return this;
+	}
+
+	public RegistrationPage setBirthDay(String day, String month, String year) {
+		dateOfBirth.click();
+		calendarForm.setDate(day, month, year);
+		return this;
+	}
+
+	public RegistrationPage clickSubmitButton() {
+		submitButton.click();
 		return this;
 	}
 
 	public void checkSubmittingStudentForm(Student student) {
-		submittingStudentForm.checkSubmittingFormValue(student);
+		resultsModalForm.checkTitle();
+		resultsModalForm.checkLabel();
+		resultsModalForm.checkName(student.getFirstName(), student.getLastName());
+		resultsModalForm.checkEmail(student.getEmail());
+		resultsModalForm.checkGender(student.getGender());
+		resultsModalForm.checkMobile(student.getUserMobile());
+		resultsModalForm.checkBirth(student.getDayOfBirth(), student.getMonthOfBirth(), student.getYearOfBirth());
+		resultsModalForm.checkSubjects(student.getSubjects());
+		resultsModalForm.checkHobbies(student.getHobbies());
+		resultsModalForm.checkPicture(student.getPicture());
+		resultsModalForm.checkAddress(student.getCurrentAddress());
+		resultsModalForm.checkStateCity(student.getState(), student.getCity());
 	}
 }
 

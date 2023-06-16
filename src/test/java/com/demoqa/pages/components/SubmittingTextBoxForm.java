@@ -13,11 +13,20 @@ public class SubmittingTextBoxForm {
 			currentAddressOutput = $(" #output #currentAddress"),
 			permanentAddressOutput = $(" #output #permanentAddress");
 
-	public void checkOutPutForm(TextBox data){
-		nameOutput.shouldHave(Condition.text(data.getFullName()));
-		emailOutput.shouldHave(Condition.text(data.getEmail()));
-		currentAddressOutput.shouldHave(Condition.text(data.getCurrentAddress()));
-		permanentAddressOutput.shouldHave(Condition.text(data.getPermanentAddress()));
+
+	public void checkFullName(String fullName) {
+		nameOutput.shouldHave(Condition.text(fullName));
 	}
 
+	public void checkEmail(String email) {
+		emailOutput.shouldHave(Condition.text(email));
+	}
+
+	public void checkCurrentAddress(String currentAddress) {
+		currentAddressOutput.shouldHave(Condition.text(currentAddress));
+	}
+
+	public void checkPermanentAddress(String permanentAddress) {
+		permanentAddressOutput.shouldHave(Condition.text(permanentAddress));
+	}
 }

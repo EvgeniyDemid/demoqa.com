@@ -2,16 +2,16 @@ package com.demoqa.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
 import com.demoqa.pages.components.SubmittingTextBoxForm;
 import com.demoqa.testData.TextBox;
+import com.demoqa.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TextBoxPage {
 
 	SubmittingTextBoxForm submittingTextBoxForm = new SubmittingTextBoxForm();
+	TestBase testBase = new TestBase();
 
 	SelenideElement
 			userNameInput = $("#userName"),
@@ -20,22 +20,22 @@ public class TextBoxPage {
 			permanentAddressInput = $("#permanentAddress"),
 			submitButton = $("#submit");
 
-	public TextBoxPage setFirstNameInput(String firstName) {
+	public TextBoxPage setFirstName(String firstName) {
 		userNameInput.setValue(firstName);
 		return this;
 	}
 
-	public TextBoxPage setUserEmailInput(String email) {
+	public TextBoxPage setUserEmail(String email) {
 		userEmailInput.setValue(email);
 		return this;
 	}
 
-	public TextBoxPage setCurrentAddressInput(String currentAddress) {
+	public TextBoxPage setCurrentAddress(String currentAddress) {
 		currentAddressInput.setValue(currentAddress);
 		return this;
 	}
 
-	public TextBoxPage setPermanentAddressInput(String permanentAddress) {
+	public TextBoxPage setPermanentAddress(String permanentAddress) {
 		permanentAddressInput.setValue(permanentAddress);
 		return this;
 	}
@@ -45,15 +45,18 @@ public class TextBoxPage {
 		return this;
 	}
 
-	public void checkSubmittingTextBoxForm(TextBox data) {
-		submittingTextBoxForm.checkOutPutForm(data);
+	public void checkResultTextBoxForm(TextBox data) {
+		submittingTextBoxForm.checkFullName(data.getFullName());
+		submittingTextBoxForm.checkEmail(data.getEmail());
+		submittingTextBoxForm.checkCurrentAddress(data.getCurrentAddress());
+		submittingTextBoxForm.checkPermanentAddress(data.getPermanentAddress());
+
+
 	}
 
 	public TextBoxPage openPage() {
 		Selenide.open("/text-box");
-		WebDriverRunner.driver().getWebDriver().manage().window().maximize();
-		executeJavaScript("$('#fixedban').remove()");
-		executeJavaScript("$('footer').remove()");
+		testBase.removingFooterBanners();
 		return this;
 	}
 }
