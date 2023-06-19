@@ -10,7 +10,7 @@ public class TestBase {
 	static void beforeAll() {
 		Configuration.baseUrl = "https://demoqa.com";
 		Configuration.pageLoadStrategy = "eager";
-		Configuration.browserSize = "1280*1024";
+		Configuration.browserSize = "1280x1024";
 	}
 	public void removingFooterBanners() {
 		executeJavaScript("$('#fixedban').remove()");
