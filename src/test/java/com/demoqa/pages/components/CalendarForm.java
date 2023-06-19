@@ -2,8 +2,6 @@ package com.demoqa.pages.components;
 
 import com.codeborne.selenide.SelenideElement;
 
-import java.time.LocalDate;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class CalendarForm {

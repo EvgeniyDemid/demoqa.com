@@ -29,11 +29,11 @@ public class RegistrationPage {
 			stateInput = $("#state"),
 			сityInput = $("#city"),
 			submitButton = $("#submit"),
-			titelRegForm = $(byText("Student Registration Form"));
+			titleRegForm = $(byText("Student Registration Form"));
 
 	public RegistrationPage openPage() {
 		Selenide.open("/automation-practice-form");
-		titelRegForm.shouldBe(visible);
+		titleRegForm.shouldBe(visible);
 		testBase.removingFooterBanners();
 		return this;
 	}
@@ -93,7 +93,7 @@ public class RegistrationPage {
 		return this;
 	}
 
-	public RegistrationPage setСityInput(String city) {
+	public RegistrationPage setCityInput(String city) {
 		if(city!=null){
 			сityInput.click();
 			сityInput.$(byText(city)).click();

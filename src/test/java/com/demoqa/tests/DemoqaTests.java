@@ -25,15 +25,21 @@ public class DemoqaTests extends TestBase {
 		String email = faker.internet().emailAddress();
 		String gender = faker.dog().gender();
 		String mobile = faker.phoneNumber().subscriberNumber(10);
-		String day = String.valueOf(1 + (int) (Math.random() * 27));
-		String month = randomUtils.getmonth();
+		String day = String.format("%02d", faker.number().numberBetween(1, 28));
+		String month = faker.options().option(
+				"January","February","March","April","May","June","July",
+				"August","September","October","November","December"
+		);
 		String year = String.valueOf(current_Year - faker.date().birthday().getYear());
-		String subject = randomUtils.getSubject();
-		String hobby = randomUtils.getHobby();
+		String subject = faker.options().option("Hindi", "English", "Maths", "Physics", "Chemistry", "Biology",
+				"Computer Science", "Commerce", "Accounting", "Economics", "Arts",
+				"Social Studies", "History", "Civics"
+		);
+		String hobby = faker.options().option("Sports", "Reading", "Music");
 		String picture = "Screenshot.png";
 		String pathPicture = "src/test/resources/";
 		String currentAddress = faker.address().fullAddress();
-		String state = randomUtils.getState();
+		String state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
 		String city = randomUtils.getCity(state);
 
 
@@ -49,7 +55,7 @@ public class DemoqaTests extends TestBase {
 				.setPicture(picture, pathPicture)
 				.setCurrentAddress(currentAddress)
 				.setStateInput(state)
-				.setСityInput(city)
+				.setCityInput(city)
 				.clickSubmitButton();
 
 		resultsModalForm.checkTitle()
