@@ -1,20 +1,19 @@
 package com.demoqa.pages;
 
-import com.codeborne.selenide.*;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarForm;
-import com.demoqa.pages.components.ResultsModalForm;
-import com.demoqa.testData.Student;
 import com.demoqa.tests.TestBase;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPage {
 	CalendarForm calendarForm = new CalendarForm();
-	ResultsModalForm resultsModalForm = new ResultsModalForm();
 	TestBase testBase = new TestBase();
 	SelenideElement
 			firstNameInput = $("#firstName"),
@@ -40,7 +39,6 @@ public class RegistrationPage {
 	}
 
 
-
 	public RegistrationPage setFirstName(String firstName) {
 		firstNameInput.setValue(firstName);
 		return this;
@@ -57,7 +55,9 @@ public class RegistrationPage {
 	}
 
 	public RegistrationPage setGender(String gender) {
-		genderCheckBox.$(byText(gender)).click();
+		genderCheckBox.
+				$(withText(gender.substring(0, 1).toUpperCase()+ gender.substring(1))).
+				click();
 		return this;
 	}
 
@@ -78,7 +78,7 @@ public class RegistrationPage {
 	}
 
 	public RegistrationPage setPicture(String pictureName, String pathPicture) {
-		picture.uploadFile(new File( pathPicture + pictureName ));
+		picture.uploadFile(new File(pathPicture + pictureName));
 		return this;
 	}
 
@@ -94,8 +94,10 @@ public class RegistrationPage {
 	}
 
 	public RegistrationPage setСityInput(String city) {
-		сityInput.click();
-		сityInput.$(byText(city)).click();
+		if(city!=null){
+			сityInput.click();
+			сityInput.$(byText(city)).click();
+		}
 		return this;
 	}
 
@@ -108,21 +110,6 @@ public class RegistrationPage {
 	public RegistrationPage clickSubmitButton() {
 		submitButton.click();
 		return this;
-	}
-
-	public void checkSubmittingStudentForm(Student student) {
-		resultsModalForm.checkTitle();
-		resultsModalForm.checkLabel();
-		resultsModalForm.checkName(student.getFirstName(), student.getLastName());
-		resultsModalForm.checkEmail(student.getEmail());
-		resultsModalForm.checkGender(student.getGender());
-		resultsModalForm.checkMobile(student.getUserMobile());
-		resultsModalForm.checkBirth(student.getDayOfBirth(), student.getMonthOfBirth(), student.getYearOfBirth());
-		resultsModalForm.checkSubjects(student.getSubjects());
-		resultsModalForm.checkHobbies(student.getHobbies());
-		resultsModalForm.checkPicture(student.getPicture());
-		resultsModalForm.checkAddress(student.getCurrentAddress());
-		resultsModalForm.checkStateCity(student.getState(), student.getCity());
 	}
 }
 

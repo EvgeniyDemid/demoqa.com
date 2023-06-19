@@ -1,7 +1,6 @@
 package com.demoqa.pages.components;
 
 import com.codeborne.selenide.SelenideElement;
-import com.demoqa.testData.Student;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -14,59 +13,69 @@ public class ResultsModalForm {
 			submittingForm = $(".table-responsive"),
 			title = $("#example-modal-sizes-title-lg");
 
-	public void checkTitle() {
+	public ResultsModalForm checkTitle() {
 		title.shouldBe(visible);
+		return this;
 	}
 
-	public void checkLabel() {
+	public ResultsModalForm checkLabel() {
 		submittingForm.$(byText("Label")).sibling(0).shouldHave(text("Values"));
+		return this;
 	}
 
-	public void checkName(String firstName, String lastName) {
+	public ResultsModalForm checkName(String firstName, String lastName) {
 		submittingForm.$(byText("Student Name")).
 				sibling(0).shouldHave(text(firstName + " " + lastName));
+		return this;
 
 	}
 
-	public void checkEmail(String email) {
+	public ResultsModalForm checkEmail(String email) {
 		submittingForm.$(byText("Student Email")).sibling(0).shouldHave(text((email)));
-
+		return this;
 	}
 
-	public void checkGender(String gender) {
+	public ResultsModalForm checkGender(String gender) {
 		submittingForm.$(byText("Gender")).sibling(0).shouldHave(text(gender));
+		return this;
 	}
 
-	public void checkMobile(String mobile) {
+	public ResultsModalForm checkMobile(String mobile) {
 		submittingForm.$(byText("Mobile")).sibling(0).shouldHave(text(mobile));
+		return this;
 
 	}
 
-	public void checkBirth(String day, String month, String year) {
+	public ResultsModalForm checkBirth(String day, String month, String year) {
 		submittingForm.$(byText("Date of Birth")).
 				sibling(0).
 				shouldHave(text(day + " " + month + "," + year));
-
+		return this;
 	}
 
-	public void checkSubjects(String subjects) {
+	public ResultsModalForm checkSubjects(String subjects) {
 		submittingForm.$(byText("Subjects")).sibling(0).shouldHave(text(subjects));
+		return this;
 	}
 
-	public void checkHobbies(String hobbies) {
+	public ResultsModalForm checkHobbies(String hobbies) {
 		submittingForm.$(byText("Hobbies")).sibling(0).shouldHave(text(hobbies));
+		return this;
 	}
 
-	public void checkPicture(String picture) {
+	public ResultsModalForm checkPicture(String picture) {
 		submittingForm.$(byText("Picture")).sibling(0).shouldHave(text(picture));
+		return this;
 	}
 
-	public void checkAddress(String address) {
+	public ResultsModalForm checkAddress(String address) {
 		submittingForm.$(byText("Address")).sibling(0).shouldHave(text(address));
+		return this;
 	}
 
-	public void checkStateCity(String state, String city) {
+	public ResultsModalForm checkStateCity(String state, String city) {
 		submittingForm.$(byText("State and City")).
 				sibling(0).shouldHave(text(state + " " + city));
+		return this;
 	}
 }

@@ -2,7 +2,6 @@ package com.demoqa.pages.components;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.demoqa.testData.TextBox;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -14,19 +13,23 @@ public class SubmittingTextBoxForm {
 			permanentAddressOutput = $(" #output #permanentAddress");
 
 
-	public void checkFullName(String fullName) {
+	public SubmittingTextBoxForm checkFullName(String fullName) {
 		nameOutput.shouldHave(Condition.text(fullName));
+		return this;
 	}
 
-	public void checkEmail(String email) {
+	public SubmittingTextBoxForm checkEmail(String email) {
 		emailOutput.shouldHave(Condition.text(email));
+		return this;
 	}
 
-	public void checkCurrentAddress(String currentAddress) {
+	public SubmittingTextBoxForm checkCurrentAddress(String currentAddress) {
 		currentAddressOutput.shouldHave(Condition.text(currentAddress));
+		return this;
 	}
 
-	public void checkPermanentAddress(String permanentAddress) {
+	public SubmittingTextBoxForm checkPermanentAddress(String permanentAddress) {
 		permanentAddressOutput.shouldHave(Condition.text(permanentAddress));
+		return this;
 	}
 }

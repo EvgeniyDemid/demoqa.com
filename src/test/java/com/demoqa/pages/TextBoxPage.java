@@ -2,15 +2,11 @@ package com.demoqa.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.demoqa.pages.components.SubmittingTextBoxForm;
-import com.demoqa.testData.TextBox;
 import com.demoqa.tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class TextBoxPage {
-
-	SubmittingTextBoxForm submittingTextBoxForm = new SubmittingTextBoxForm();
 	TestBase testBase = new TestBase();
 
 	SelenideElement
@@ -45,14 +41,6 @@ public class TextBoxPage {
 		return this;
 	}
 
-	public void checkResultTextBoxForm(TextBox data) {
-		submittingTextBoxForm.checkFullName(data.getFullName());
-		submittingTextBoxForm.checkEmail(data.getEmail());
-		submittingTextBoxForm.checkCurrentAddress(data.getCurrentAddress());
-		submittingTextBoxForm.checkPermanentAddress(data.getPermanentAddress());
-
-
-	}
 
 	public TextBoxPage openPage() {
 		Selenide.open("/text-box");
