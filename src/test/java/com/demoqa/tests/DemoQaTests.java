@@ -4,12 +4,13 @@ import com.demoqa.pages.RegistrationPage;
 import com.demoqa.pages.components.ResultsModalForm;
 import com.demoqa.utils.RandomUtils;
 import com.github.javafaker.Faker;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Locale;
 
-public class DemoqaTests extends TestBase {
+public class DemoQaTests extends TestBase {
 	RegistrationPage registrationPage = new RegistrationPage();
 	ResultsModalForm resultsModalForm = new ResultsModalForm();
 	RandomUtils randomUtils = new RandomUtils();
@@ -18,6 +19,7 @@ public class DemoqaTests extends TestBase {
 	int current_Year = current_date.getYear();
 
 	@Test
+	@DisplayName("Успешная регистрация студента")
 	public void checkMainPage() {
 
 		String firstName = faker.name().firstName();
