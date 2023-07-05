@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.Locale;
 
-@Tag("simple")
-public class DemoQaTests extends TestBase {
+@Tag("remote")
+public class DemoQaTests extends RemoteTestBase {
 	RegistrationPage registrationPage = new RegistrationPage();
 	ResultsModalForm resultsModalForm = new ResultsModalForm();
 	RandomUtils randomUtils = new RandomUtils();
