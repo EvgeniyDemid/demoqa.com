@@ -5,6 +5,7 @@ import com.demoqa.pages.components.ResultsModalForm;
 import com.demoqa.utils.RandomUtils;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -19,6 +20,7 @@ public class DemoQaTests extends TestBase {
 	int current_Year = current_date.getYear();
 
 	@Test
+	@Tag("simple")
 	@DisplayName("Успешная регистрация студента")
 	public void checkMainPage() {
 
