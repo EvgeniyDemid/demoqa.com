@@ -27,7 +27,7 @@ public class RegistrationPage {
 			picture = $("#uploadPicture"),
 			currentAddress = $("#currentAddress"),
 			stateInput = $("#state"),
-			сityInput = $("#city"),
+			cityInput = $("#city"),
 			submitButton = $("#submit"),
 			titleRegForm = $(byText("Student Registration Form"));
 
@@ -95,8 +95,8 @@ public class RegistrationPage {
 
 	public RegistrationPage setCityInput(String city) {
 		if(city!=null){
-			сityInput.click();
-			сityInput.$(byText(city)).click();
+			cityInput.click();
+			cityInput.$(byText(city)).click();
 		}
 		return this;
 	}
