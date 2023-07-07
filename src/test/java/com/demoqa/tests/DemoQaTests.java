@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Locale;
-
+@Tag("property")
 @Tag("remote")
 public class DemoQaTests extends RemoteTestBase {
 	RegistrationPage registrationPage = new RegistrationPage();
