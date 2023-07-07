@@ -20,7 +20,6 @@ public class RemoteTestBase {
 		Configuration.pageLoadStrategy = "eager";
 		Configuration.browserSize = System.getProperty("browserSize","1920x1080");
 		Configuration.browser = System.getProperty("browser","chrome");
-		Configuration.holdBrowserOpen = true;
 		Configuration.remote = System.getProperty("selenoid");
 		Configuration.browserVersion = System.getProperty("browserVersion");
 
