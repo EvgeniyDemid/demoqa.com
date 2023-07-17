@@ -27,10 +27,6 @@ public class TestBase {
 		Configuration.browserSize = config.browserSize();
 		if (config.isRemote()) {
 			Configuration.remote = config.remoteUrl();
-			DesiredCapabilities capabilities = new DesiredCapabilities();
-			capabilities.setCapability("enableVNC", true);
-			capabilities.setCapability("enableVideo", true);
-			Configuration.browserCapabilities = capabilities;
 		}
 	}
 
