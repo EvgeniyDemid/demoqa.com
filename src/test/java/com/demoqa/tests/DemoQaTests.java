@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.Locale;
 @Tag("property")
 @Tag("remote")
-public class DemoQaTests extends RemoteTestBase {
+public class DemoQaTests extends TestBase {
 	RegistrationPage registrationPage = new RegistrationPage();
 	ResultsModalForm resultsModalForm = new ResultsModalForm();
 	RandomUtils randomUtils = new RandomUtils();
